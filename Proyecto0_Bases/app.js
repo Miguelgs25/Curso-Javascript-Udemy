@@ -168,17 +168,18 @@ console.log(meses);
 */
 //ordenar
 //string
+/*
 const fruta=["Pera","Manzana","Sandía","Melón"];
 fruta.sort();
 console.log(fruta);
 //numeros
 const numeros=[1,2,4,0,12,453,-5];
-
-/*numeros.sort(function(num1,num2){
+//tipo corto
+numeros.sort(function(num1,num2){
 //la compareFunction num1 es menor que 0, se sitúa num1 en un indice menor que num2
     return num1-num2;
-});*/
-
+});
+//tipo entendible
 numeros.sort(function(num1,num2){
     if(num1<num2)
         return -1;
@@ -188,4 +189,236 @@ numeros.sort(function(num1,num2){
         return 1;
 });
 console.log(numeros);
+*/
 
+//OBJETOS
+/*
+const persona={
+    nombre:"Miguel",
+    apellido:"Martinez",
+    profesion:"Programador",
+    email:"miguel@gmail.com",
+    gustos:["Comer","Musica"],
+    vivienda:{
+        calle:"Enigma",
+        ciudad:"Granada"
+    },
+    añoNacimiento:1991,
+    edad:function(){
+        return new Date().getFullYear()-this.añoNacimiento;
+    }
+};
+
+console.log(persona);
+console.log(persona.edad());
+*/
+
+//FUNCIONES
+//argumentos predefinidos
+/*function saludo(nombre="desconocido."){
+    console.log(`Hola ${nombre}`);
+}
+
+saludo("Miguel");
+*/
+/*
+const saludar=function(nombre="desconocido."){
+    console.log(`Hola ${nombre}`);
+}
+saludar("Miguel");
+*/
+//recursiva
+/*function restaUnoRecursiva(num,pasos){
+    if(num===0){
+        return pasos++;
+    }else{
+        console.log(`Numero ${num}`);
+        return restaUnoRecursiva(--num,++pasos);
+
+    }
+}
+
+console.log(restaUnoRecursiva(10,0));
+*/
+//funciones IIFE, funciones auto-invocadas
+/*
+(function(nombre="desconocido."){
+    console.log(`Hola ${nombre}`);
+})("Miguel");
+*/
+
+//metodo de propiedad(Métodos)
+/*
+const cuadrado={
+    ancho:10,
+    alto:10,
+    area:function(){
+        return this.ancho*this.alto;
+    }
+}
+console.log(cuadrado.area());
+
+//pueden crearse/guardarse fuera del objeto
+cuadrado.perimetro=function(){
+    return this.alto*2+this.ancho*2;
+}
+console.log(cuadrado.perimetro());
+*/
+
+//TRY-CATCH
+/*
+//se pude llamar a la funcion antes de declararla
+try{
+    obtenerProveedor();//No existe, error detiene el programa
+}catch(error){
+    console.log(error);//muestra mensaje de error en lugar de parar el programa
+}finally{//esta parte siempre se ejecuta
+    console.log("Se ejecuta siempre");
+}
+obtenerClientes(); //Existe
+
+function obtenerClientes(){
+    console.log("Descargando...");
+    setTimeout(function(){
+        console.log("Completo.");
+    },3000);
+};
+*/
+
+//FECHAS
+/*
+//objeto DATE
+const hoy= new Date();
+//const hoy2= Date();
+
+let navidad=new Date('12/25/2019');
+navidad=new Date('12-25-2019');
+navidad=new Date(2019,11,25);//notese el 11 para el mes diciembre
+//let navidad2= new Date("25-12-2019");
+
+console.log(hoy);
+//console.log(hoy2);
+console.log(navidad);
+//console.log(navidad2);
+
+let valor;
+valor=hoy.getFullYear();
+valor=hoy.getMonth();//devuelve 6 aunque estamos en Julio(7)
+valor=hoy.getDay();
+valor=hoy.getMinutes();
+valor=hoy.getHours();
+valor=hoy.getMilliseconds();
+valor=hoy.getTime();//milisegundos desde 1970
+//modificar una fecha
+valor=hoy.getFullYear();
+valor=hoy.setFullYear(2020);
+valor=hoy.getFullYear();
+console.log(valor);
+*/
+
+//ESTRUCTURAS DE CONTROL IF ELSEIF ELSE
+/*
+const edad=18;
+
+if(edad>=18){
+    console.log("Eres mayor de edad");
+}else{
+    console.log("Eres menor de edad");
+}
+
+let num,num1=10;
+//se puede usar para comprobar que los campos de un formulario esten llenos
+if(num){
+    console.log(`Existe el numero ${num}`);
+}else{
+    console.log("No existe el numero");
+}
+//para agregar más terminos: AND -> && , OR -> ||
+
+let verdad=true;
+console.log( verdad===true?"Es verdad":"No es verdad" );//if inline
+*/
+
+//SWITCH
+/*
+let num=7;
+
+switch(num){
+    case 1: console.log("Uno");
+        break;
+    case 2: console.log("Dos");
+        break;
+    case 3: console.log("Tres");
+        break;
+    case 4: console.log("Cuatro");
+        break;
+    case 5: console.log("Cinco");
+        break;
+    default: console.log("Nose");
+        break;
+};
+*/
+
+//BUCLES
+
+//FOR   
+/*
+for(let i=0;i<10;i++){
+    console.log(i);
+}
+
+let lista=["a","b","c","d"];
+
+for(let i=0;i<lista.length;i++){
+    console.log(lista[i]);
+}
+
+for(let l in lista)
+    console.log(lista[l]);
+
+let objeto={nombre:"Juan",
+            edad:18,
+            profesion:"albañil"
+            };
+
+for(let campo in objeto){
+    console.log(`campo tiene id ${campo} y contiene ${objeto[campo]}`);
+}
+*/
+
+//WHILE & DO-WHILE
+/*
+let num=10;
+
+while(num>0){
+    console.log(num--);
+}
+
+do{
+    console.log(`Entra siempre una vez ${num}`);
+}while(num>0);
+*/
+
+//FOR-EACH
+let lista=["a","b","c","d"];
+
+lista.forEach(function(contenido, index){
+    console.log(contenido+` ${index}`);
+});
+
+let arrayObjetos=[
+            {nombre:"Juan",
+            edad:18,
+            profesion:"albañil"
+            },
+            {nombre:"Ana",
+            edad:20,
+            profesion:"cocinera"
+            }
+        ];
+
+let edad=arrayObjetos.map(function(arrayObjetos){
+    return arrayObjetos.edad;
+});
+
+console.log(edad);
