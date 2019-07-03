@@ -400,6 +400,7 @@ do{
 */
 
 //FOR-EACH
+/*
 let lista=["a","b","c","d"];
 
 lista.forEach(function(contenido, index){
@@ -422,3 +423,148 @@ let edad=arrayObjetos.map(function(arrayObjetos){
 });
 
 console.log(edad);
+*/
+
+//ITERADORES
+/*
+const ciudades=["Madrid","Granada","Barcelona","Sevilla"];
+const ordenes= new Set([10,20,30,40]);//set establece valores únicos
+const datos=new Map();
+
+datos.set('nombre','Miguel');//key,valor
+datos.set('profesion','Informatico');
+
+console.log(ciudades);
+console.log(ordenes);
+console.log(datos);
+*/
+
+//Entries iterador
+/*
+for(let entrada of ciudades.entries()){
+    console.log(entrada);//indice, valor
+}
+
+for(let entrada of ordenes.entries()){
+    console.log(entrada);//indice, valor
+}
+
+for(let entrada of datos.entries() ){
+    console.log(entrada);//indice, valor
+}
+*/
+
+//Values iterator, es por defecto para un Array
+//( Control+D para seleccionar varias coincidencias)
+/*
+for(let entrada of ciudades){
+    console.log(entrada);//indice, valor
+}
+
+for(let entrada of ordenes){
+    console.log(entrada);//indice, valor
+}
+//para un objeto sí es util, solo devuelve el valor y no las keys
+for(let entrada of datos.values() ){
+    console.log(entrada);//indice, valor
+}
+*/
+
+//Keys iterator
+/*
+for(let entrada of ciudades.keys()){
+    console.log(entrada);//indice, valor
+}
+
+//el set la key y el valor valen lo mismo
+for(let entrada of ordenes.keys()){
+    console.log(entrada);//indice, valor
+}
+
+for(let entrada of datos.keys() ){
+    console.log(entrada);//indice, valor
+}
+*/
+
+//String iterator
+
+//const string="Hola mundo";
+
+//forma vieja
+/*
+for(let i=0;i<string.length;i++){
+    console.log(string[i]);
+}
+*/
+//forma nueva
+//notese la diferencia entre in y of, in es index, of es valor
+/*
+for(let i of string){
+    console.log(i);
+}
+*/
+//OBTENIENDO ELEMENTO DEL HTML
+/*
+const webs=document.getElementsByTagName("a");
+for(let i of webs){
+    console.log(i.href);
+}
+
+console.log(webs);
+*/
+
+//INTERACTUANDO CON EL WINDOWS OBJECT
+/*
+const windowObj= window;
+
+console.log(windowObj);
+
+const altura=windowObj.outerHeight; //innerHeight
+const anchura=windowObj.outerWidth;
+console.log(altura);
+console.log(anchura);
+
+console.log(windowObj.location);
+console.log(windowObj.navigator);
+console.log(windowObj.location.search);//saber lo que has enviado con formulario ?s=busqueda
+
+windowObj.location.href="https://www.google.es";//enviar a la url
+*/
+
+//SCOPE O AMBITO O VISIBILIDAD DE LAS VARIABLES
+
+var a="a";
+let b="b";
+const c="c";
+
+function scope(){
+    var a="A";
+    let b="B";
+    const c="C";
+
+    console.log("FUNCION ",a,b,c);
+}
+scope();
+
+//scope de bloque
+if(true){
+    var a="AA";
+    let b="BB";
+    const c="CC";
+
+    console.log("BLOQUE ",a,b,c);
+
+}
+
+
+
+
+console.log("GLOBALES ",a,b,c);
+
+
+
+
+
+
+
+
