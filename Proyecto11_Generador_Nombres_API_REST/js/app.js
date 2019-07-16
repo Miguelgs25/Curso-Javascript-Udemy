@@ -29,7 +29,9 @@ function generarNombre(e){
         url+=`amount=${cantidad}&`;
     }
 
+    //--------------AJAX-------------------//
     //peticion
+    /*
     const xhr=new XMLHttpRequest();
     xhr.open("GET",url,true);
     xhr.onload=function(){
@@ -47,7 +49,28 @@ function generarNombre(e){
             console.log(nombres);
         }
     }
-
-
     xhr.send();
+    */
+    //--------------FIN AJAX-------------------//
+
+    //--------------FETCH API----------------//
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    fetch(proxyurl+url)
+        .then(function(res){
+            return res.json();
+        },{mode: "no-cors"})
+        .then(function(data){
+            let resultados="<ul class='lista'>";
+            for(let i of data){
+                resultados+=`
+                    <li>${i.name}</li>
+                `;
+            }
+            resultados+="</ul>";
+            document.getElementById("resultado").innerHTML=resultados;
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+
 }
