@@ -56,10 +56,8 @@ function generarNombre(e){
     //--------------FETCH API----------------//
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     fetch(proxyurl+url)
-        .then(function(res){
-            return res.json();
-        },{mode: "no-cors"})
-        .then(function(data){
+        .then(res=>res.json(),{mode: "no-cors"})
+        .then(data=>{
             let resultados="<ul class='lista'>";
             for(let i of data){
                 resultados+=`
@@ -69,8 +67,6 @@ function generarNombre(e){
             resultados+="</ul>";
             document.getElementById("resultado").innerHTML=resultados;
         })
-        .catch(function(error){
-            console.log(error);
-        });
+        .catch(error=>console.log(error));
 
 }
