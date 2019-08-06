@@ -8,6 +8,10 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
+
+#webpack
+Proyecto26_Bases12_WebPack/node_modules
+
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
