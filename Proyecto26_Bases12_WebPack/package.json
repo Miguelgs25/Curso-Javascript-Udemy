@@ -1,0 +1,15 @@
+{
+  "name": "proyecto26_bases12_webpack",
+  "version": "1.0.0",
+  "description": "Archivo para aprender webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Miguel GS",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  }
+}

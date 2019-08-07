@@ -1,0 +1,8 @@
+-Tener instalado Nodejs y npm
+-Crear carpeta del proyecto
+-Con terminal ir a la carpeta del proyecto
+	-$npm init         //para crear el archivo de configuracion
+	-$npm install webpack --save-dev   //instalar webpack con el archivo creado
+	-$npm install --save-dev webpack-cli   //command line interface de webpack
+**Si se comparte el archivo package.json y haces un "$npm install" se instalan las 
+dependencias necesarias, y se evita pasar la carpeta node_modules
