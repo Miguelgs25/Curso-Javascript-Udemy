@@ -1,0 +1,114 @@
+-Tener instalado Nodejs y npm
+-Crear carpeta del proyecto
+-Con terminal ir a la carpeta del proyecto
+	-$npm init         //para crear el archivo de configuracion
+	-$npm install webpack --save-dev   //instalar webpack con el archivo creado
+	-$npm install --save-dev webpack-cli   //command line interface de webpack
+**Si se comparte el archivo package.json y haces un "$npm install" se instalan las 
+dependencias necesarias, y se evita pasar la carpeta node_modules
+
+
+--------------UTILIZAR----------
+-Modificar el html para que utilice dist/main.js en lugar de el tipico src/index.js
+-Ejecutar webpack indicando el archivo de entrada:
+	$.\node_modules\.bin\webpack src/index.js
+	-Esto genera otra carpeta dist/main.js con el nuevo codigo del bundle
+
+-Para obtener m�s control sobre webpack (*borramos la capeta dist) se utiliza el archivo
+de configuraci�n se tiene que llamar "webpack.config.js"
+
+	WEBPACK TIENE 4 PARTES IMPORTANTES
+	-ENTRY O ENTRADA
+	-OUTPUT O SALIDA
+	-PLUGINS
+	-LOADERS
+
+Estas partes se definen y utilizan en el archivo de configuraci�n
+
+-Para correr webpack con el archivo de configuraci�n $.\node_modules\.bin\webpack sin argumento
+-Modificar el html para que el script apunte al archivo output
+
+--------Crear un script para correr webpack-----
+-En package.json "scripts" agregar "ejecutar" : "webpack" y podremos usar $npm run ejecutar
+para correr webpack facilmente
+
+
+--------Instalar BABEL: transpilar c�digo para que funcione en otras versiones-------
+
+npm install --save-dev babel-core babel-loader babel-preset-env
+-Para trabajar con babel hay que crear un archivo llamado .babelrc para la configuracion
+-Le hacemos saber a webpack config que vamos a hacer uso de babel loaders,
+	-creamos el loaders en webpack.config.js
+	-en index.js agregamos el c�digo que vamos a transpilar
+	-corremos webpack con npm run ejecutar
+
+--------Poner webpack en modo escucha por cambios------
+-crear un nuevo script en package. json (watch:webpack --watch --mode development) 
+-ejecutarlo npm run watch  -> se queda en modo escucha para ejecutar cualquier cambio
+
+--------Importar CSS en Webpack----------
+-Instalamos npm install --save-dev style-loader css-loader
+-creamos una nueva regla en webpack.config.js en el apartado modules para css
+-creamos el archivo css
+-lo importamos en el archivo de entrada index.js
+-webpack permite importar una hoja de estilos en un archivo.js algo que no es posible
+solo con javascript
+
+--------Importar SCSS archivos sass en webpack---------
+- npm install --save-dev sass-loader
+-creamos una nueva regla en webpack.config.js en el apartado modules para sass o scss
+-importamos dentro del archivo .js
+
+-------Crear multiples entry points 
+-modificamos el webpack.config.js:
+	-en el entry creamos el objeto con los nombres y diferentes archivos.js de entrada
+	-agregamos [name]. al nombre del fichero de salida en output
+-creamos otro fichero html con el script del otro bundle.js
+-ejecutamos webpack npm run ejecutar o watch
+-comprobamos que los dos html hacen lo correspondiente
+**Esto sirve para ir separando el código en diferentes fragmentos para importar estilos y crear funcionalidades
+qué se puedan visualizar de manera independiente y luego juntarlo en un archivo de código común. por ej React
+
+--------Agregar plugin common chunks para crear un archivo de código común-------
+-modificamos el archivo webpack.config.js para agregar el plugin de optimización
+-esto nos genera un nuevo archivo de código común donde se definen las librerías comunes de webpack
+-Nos permite aligerar los ficheros de nuestro código, pero hay que importar adicionalmente este fichero en
+los html
+
+
+----------Instalar WEBPACK-dev-server y usarlo en lugar de Live Server--------
+-npm install --save-dev webpack-dev-server
+-modificamos el archivo webpack.config.js, agregamos un nuevo campo devServer
+-agregamos un nuevo script para ejecutar en package.json "dev": "webpack-dev-server --mode development --open"  //open para que abra un navegador
+**Normalmente lo que se sube al servidor es la carpeta dist
+-Hay que pasar los archivos html a la carpeta dist y cambiarle el src del script
+
+
+--------Instalar plugin html-webpack-plugin
+-npm install --save-dev html-webpack-plugin
+-Este plugin sirve para generar los html en lugar de crearlos nosotros mismos y
+luego arrastralos a la carpeta dist.
+-en webpack.config.js   importamos el plugin y lo agregamos a la configuración
+-Al realizar npm run ejecutar se crean los archivos bundle y html en el dist
+-html viene sin personalizar, para personalizarlo crear en el src un index.html
+con lo qué queramos y para indicarle el nombre del fichero en el plugin de 
+webpack.config.js agregamos el filename y el template o fuente del que proviene
+-Se pueden realizar cambios en el src y con el webpack server se recargaran 
+automaticamente los archivos del dist.
+
+-Para crear más archivos html:
+	-modificar el webpack.config.js, la parte de PLUGINS y los entry points
+
+
+
+
+
+
+
+
+
+
+
+
+
+

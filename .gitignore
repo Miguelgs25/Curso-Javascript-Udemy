@@ -2,7 +2,7 @@
 # Edit at https://www.gitignore.io/?templates=visualstudiocode
 #webpack
 Proyecto26_Bases12_WebPack/node_modules
-
+Proyecto26_Bases12_WebPack/dist
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
